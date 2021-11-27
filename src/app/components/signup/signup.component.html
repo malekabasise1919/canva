@@ -1,0 +1,103 @@
+<div
+  class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+>
+  <div class="max-w-md w-full space-y-8">
+    <div>
+     
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Sign up for an account
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Already have an account?
+        <span
+          routerLink="/login"
+          class="cursor-pointer font-medium text-pencil-500 transition duration-300 hover:text-pencil-600"
+        >
+          Login!
+        </span>
+      </p>
+    </div>
+
+    <!---------------------------------------------- Sign Up With Email and Password Inputs and Button ---------------------------------------------->
+    <div class="mt-8 space-y-6">
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div>
+          <label for="email-address" class="sr-only">Email address</label>
+          <input
+            (keyup.enter)="signUpButton.click()"
+            id="email-address"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-pencil-500 focus:border-pencil-500 focus:z-10 sm:text-sm"
+            placeholder="Email address"
+            #email
+          />
+        </div>
+        <div>
+          <label for="password" class="sr-only">Password</label>
+          <input
+            (keyup.enter)="signUpButton.click()"
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-pencil-500 focus:border-pencil-500 focus:z-10 sm:text-sm"
+            placeholder="Password"
+            #password
+          />
+        </div>
+        <div>
+          <label for="password" class="sr-only">Confirm Password</label>
+          <input
+            (keyup.enter)="signUpButton.click()"
+            id="confirm-password"
+            name="confirm-password"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-pencil-500 focus:border-pencil-500 focus:z-10 sm:text-sm"
+            placeholder="Confirm Password"
+            #confirmPassword
+          />
+        </div>
+      </div>
+      <div>
+        <button
+          (click)="
+            authService.signup(
+              email.value,
+              password.value,
+              confirmPassword.value
+            )
+          "
+          type="submit"
+          class="group relative w-full flex justify-center mt-10 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pencil-500 transition duration-300 hover:bg-pencil-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pencil-600"
+          #signUpButton
+        >
+          Sign up
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <span class="text-gray-600">or</span>
+      </div>
+
+      <!---------------------------------------------- Sign Up With Google Button ---------------------------------------------->
+      <div>
+        <button
+          (click)="authService.googleLogin()"
+          type="submit"
+          class="group relative w-full flex justify-center py-2 px-4 border border-gray-400 text-sm font-medium rounded-md bg-white transition duration-300 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        >
+          <img
+            class="h-5 w-5 mr-2"
+            src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
+          />
+          Sign up with Google
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
